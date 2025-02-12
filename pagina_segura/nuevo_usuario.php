@@ -1,5 +1,16 @@
 <?php
-
+require_once("funciones.php");
+if (isset($_POST["usuario"]) &&
+isset($_POST["password"]) &&
+isset($_POST["nombre"]) &&
+isset($_POST["apellido"]) &&
+isset($_POST["correo"])){
+    agregar_usuario($_POST["usuario"],
+                    $_POST["password"],
+                    $_POST["nombre"],
+                    $_POST["apellido"],
+                    $_POST["correo"]);
+}
 ?>
 <HTML>
     <HEAD>

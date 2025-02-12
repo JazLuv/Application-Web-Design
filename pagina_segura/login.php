@@ -31,5 +31,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             echo "<p>".$error."</p>";
         }
         ?>
+    <a href="nuevo_usuario.php">Sign Up</a>
     </BODY>
 </HTML>

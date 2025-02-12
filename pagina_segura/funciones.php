@@ -14,6 +14,25 @@ function conectar (){
     }
     return $conexion;
 }
-conectar();
-echo"todo bien";
+
+function agregar_usuario($usuario, $password, $nombre, $apellido, $correo){
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO usuarios (usuario, password, nombre, apellido, correo)
+            VALUES (?, ?, ?, ?, ?)";
+    $conexion = conectar();
+    $stml = mysqli_prepare($conexion, $sql);
+    if ($stml){
+        mysqli_stmt_bind_param($stml, "sssss", $usuario, $password, $nombre, $apellido, $correo);
+        if (mysqli_stmt_execute($stml)){
+            echo "Usuario agregado exitosamente";
+            header ("location: login.php");
+        } else  {
+        echo "Error al agregar usuario";
+        }
+        mysqli_stmt_close($stml);
+    } else {
+        echo "Error al preparar la consulta";
+    }
+}
+
 ?>
