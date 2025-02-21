@@ -34,7 +34,7 @@ function agregar_usuario($usuario, $password, $nombre, $apellido, $correo){
         echo "Error al preparar la consulta";
     }
 }
-
+session_start();
 function entrada($usuario, $password){
     $conexion = conectar();
     $sql = "SELECT password FROM usuarios WHERE usuario = ?"; // modificar tabla para que el usuario sea unico
@@ -47,8 +47,8 @@ function entrada($usuario, $password){
             mysqli_stmt_bind_result($stmt, $password_en_bd);
             mysqli_stmt_fetch($stmt);
             if(password_verify($password,$password_en_bd)){
-                $_SESSION["usario"]= $usuario;
-                header("location:main.php");
+                $_SESSION["usuario"]= $usuario;
+                header("location: main.php");
                 exit();
             }else {
                 $error = "Contraseña incorrecta";
@@ -57,6 +57,7 @@ function entrada($usuario, $password){
             $error = "Usuario no encontrado";
         }
     }
+    return $error;
 }
 
 ?>

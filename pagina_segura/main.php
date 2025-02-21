@@ -12,6 +12,7 @@ if (!isset($_SESSION["usuario"])) {
         <p>
             <?php
             echo "Bienvenido ".$_SESSION["usuario"];?>
+            <a href = "lista_items.php">Ver lista de items</a>
             <a href = "logout.php">Salir</a>
         </p>
     </BODY>

@@ -1,17 +1,19 @@
 <?php
-session_start();
+//session_start();
 // usuario predefinido
-$usuarios = ["usuario1"=>"123456", "admin"=>"admin"];
+//$usuarios = ["usuario1"=>"123456", "admin"=>"admin"];
+require_once ("funciones.php");
 if($_SERVER["REQUEST_METHOD"]=="POST"){
     $user = $_POST["usuario"];
     $pass = $_POST["llave"];
-    if(isset($usuarios[$user]) && $usuarios[$user]==$pass){
+    $error = entrada($user, $pass);
+    /*if(isset($usuarios[$user]) && $usuarios[$user]==$pass){
         $_SESSION["usuario"] = $user;
         header("location: main.php");
         exit();
     } else{
         $error = "Usuario o contraseña incorrectos";
-    }
+    }*/
 }
 ?>
 <HTML>
