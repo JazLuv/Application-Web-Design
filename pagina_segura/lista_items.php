@@ -9,6 +9,8 @@ $result = mysqli_query($conexion, $sql);
 ?>
 <HTML>
     <HEAD>
+        <LINK rel="stylesheet" href="css/tabla.css">
+        <META charset="UTF-8">
         <TITLE>Lista de Items</TITLE>
     </HEAD>
     <BODY>
